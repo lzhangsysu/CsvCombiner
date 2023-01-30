@@ -1,32 +1,41 @@
 # PMG Programming Challenges
 
-A few small programming challenges that let us see how job candidates work.
+# CSV Combiner
 
-## What Languages Can I Use?
+This is a command line program that takes several CSV files as arguments. Each CSV
+file (found in the `fixtures` directory of this repo) has the same
+columns. The program outputs a new CSV file to `stdout` that contains the
+rows from each of the inputs along with an additional column that has the
+filename from which the row came (only the file's basename, not the entire path).
+`filename` is used as the header for the additional column.
 
-Just about anything you like, but we work mostly with...
+## Example
+This example is provided to illustrate how the program runs:
 
-- PHP
-- JavaScript (node & in browser)
-- Python
-- Go
+```
+$ java CsvCombiner ./fixtures/accessories.csv ./fixtures/clothing.csv > combined.csv
+```
 
-## How do I ask questions?
+Given two input files named `clothing.csv` and `accessories.csv`:
 
-[Open an issue](https://github.com/AgencyPMG/ProgrammingChallenges/issues).
+|email_hash|category|
+|----------|--------|
+|21d56b6a011f91f4163fcb13d416aa4e1a2c7d82115b3fd3d831241fd63|Shirts|
+|21d56b6a011f91f4163fcb13d416aa4e1a2c7d82115b3fd3d831241fd63|Pants|
+|166ca9b3a59edaf774d107533fba2c70ed309516376ce2693e92c777dd971c4b|Cardigans|
 
-## How long should I spend on this?
+|email_hash|category|
+|----------|--------|
+|176146e4ae48e70df2e628b45dccfd53405c73f951c003fb8c9c09b3207e7aab|Wallets|
+|63d42170fa2d706101ab713de2313ad3f9a05aa0b1c875a56545cfd69f7101fe|Purses|
 
-Take your time and do your best work. The code you produce here should be a very
-good indicator of how you would code in a production environment.
-If you find a problem is taking a long time, let us know!
-Chances are it's probably too big for this set of challenges.
+The program would output
 
-## Can I use third-party libraries?
+|email_hash|category|filename|
+|----------|--------|--------|
+|21d56b6a011f91f4163fcb13d416aa4e1a2c7d82115b3fd3d831241fd63|Shirts|clothing.csv|
+|21d56b6a011f91f4163fcb13d416aa4e1a2c7d82115b3fd3d831241fd63|Pants|clothing.csv|
+|166ca9b3a59edaf774d107533fba2c70ed309516376ce2693e92c777dd971c4b|Cardigans|clothing.csv|
+|176146e4ae48e70df2e628b45dccfd53405c73f951c003fb8c9c09b3207e7aab|Wallets|accessories.csv|
+|63d42170fa2d706101ab713de2313ad3f9a05aa0b1c875a56545cfd69f7101fe|Purses|accessories.csv|
 
-Sure! We're interested in seeing how you work, treat this challenge like any
-other project.
-
-## How do I submit my answer?
-
-Follow the instructions you recieved for how to submit. 
